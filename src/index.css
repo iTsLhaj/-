@@ -1,0 +1,4 @@
+@import '@fontsource/ibm-plex-mono/400.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
