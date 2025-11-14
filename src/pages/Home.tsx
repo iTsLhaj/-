@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { StaggerContainer, StaggerItem } from '../components/StaggerComponent';
 
 const navigationItems = [
   {
@@ -41,9 +42,9 @@ const navigationItems = [
 
 export default function Home() {
   return (
-    <ul>
+    <StaggerContainer>
       {navigationItems.map((item) => (
-        <li key={item.href} className="mb-6">
+        <StaggerItem key={item.href} className="mb-6">
           <Link to={item.href}>
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
               <i className={`ph ${item.icon} text-text-strong mr-3`}></i>
@@ -55,8 +56,8 @@ export default function Home() {
               </span>
             </div>
           </Link>
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerContainer>
   );
 }

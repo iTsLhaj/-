@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Icon hover glow effect */
+.group:hover i.ph,
+.group:hover i svg {
+  filter: drop-shadow(0 0 8px rgba(187, 31, 140, 0.6));
+  transition: filter 0.3s ease;
+}
+
+/* Smooth transform for all hover effects */
+* {
+  transition-property: transform, filter, color, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

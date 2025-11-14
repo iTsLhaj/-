@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import Layout from './components/Layout';
+import PageTransition from './components/PageTransition';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -8,22 +10,30 @@ import Contact from './pages/Contact';
 import Certifications from './pages/Certifications';
 import Resume from './pages/Resume';
 
-import Layout from './components/Layout';
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/certifications" element={<PageTransition><Certifications /></PageTransition>} />
+        <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
-        <Layout>
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/skills" element={<Skills />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/certifications" element={<Certifications />} />
-                <Route path="/resume" element={<Resume />} />
-            </Routes>
-        </Layout>
+      <Layout>
+        <AnimatedRoutes />
+      </Layout>
     </BrowserRouter>
   );
 }

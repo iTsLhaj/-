@@ -1,3 +1,5 @@
+import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
+
 const certifications = [
   {
     href: 'https://drive.google.com/file/d/1ge1tr9cnL2b2_KPFb2NOGb__PYQ8QEek',
@@ -57,9 +59,9 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <ul className="w-full max-w-4xl">
+    <StaggerContainer className="w-full max-w-4xl">
       {certifications.map((cert, index) => (
-        <li key={index} className="mb-6">
+        <StaggerItem key={index} className="mb-6">
           <a href={cert.href} target="_blank" rel="noopener noreferrer">
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
               <i className="ph ph-certificate text-text-strong mr-3"></i>
@@ -71,8 +73,8 @@ export default function Certifications() {
               </span>
             </div>
           </a>
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerContainer>
   );
 }

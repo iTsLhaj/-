@@ -18,7 +18,7 @@ const contactLinks = [
     href: 'https://www.linkedin.com/in/hamza-mouhib-861776252/',
     icon: 'ph-linkedin-logo',
     title: 'linked-in',
-    description: 'locked-in? ...',
+    description: 'linked-in? ...',
   },
   {
     href: 'https://www.instagram.com/4c48344a/',

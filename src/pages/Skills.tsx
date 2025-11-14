@@ -1,3 +1,5 @@
+import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
+
 const skills = [
   {
     href: 'https://www.python.org/',
@@ -172,9 +174,9 @@ const skills = [
 
 export default function Skills() {
   return (
-    <ul className="w-full max-w-4xl">
+    <StaggerContainer className="w-full max-w-4xl">
       {skills.map((skill, index) => (
-        <li key={index} className="mb-6">
+        <StaggerItem key={index} className="mb-6">
           <a href={skill.href} target="_blank" rel="noopener noreferrer">
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
               <i className="text-text-strong mr-3">
@@ -203,8 +205,8 @@ export default function Skills() {
               </span>
             </div>
           </a>
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerContainer>
   );
 }

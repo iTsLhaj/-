@@ -1,3 +1,5 @@
+import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
+
 const projects = [
   {
     href: 'https://github.com/iTsLhaj/libft',
@@ -75,9 +77,9 @@ const projects = [
 
 export default function Projects() {
   return (
-    <ul className="w-full max-w-4xl">
+    <StaggerContainer className="w-full max-w-4xl">
       {projects.map((project, index) => (
-        <li key={index} className="mb-6">
+        <StaggerItem key={index} className="mb-6">
           {project.href ? (
             <a href={project.href} target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-1 m-5 cursor-pointer group">
@@ -101,8 +103,8 @@ export default function Projects() {
               </span>
             </div>
           )}
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerContainer>
   );
 }
