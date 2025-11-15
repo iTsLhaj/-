@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import Rain from './Rain';
+import LightParticles from './LightParticles';
 
 interface LayoutProps { children: React.ReactNode; }
 
@@ -9,8 +10,12 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <Rain />
-      <div className="min-h-screen relative z-10 bg-white dark:bg-[#010101] flex flex-col justify-between px-8 md:px-80 py-8 transition-colors duration-300">
+      <div className="min-h-screen relative z-10 flex flex-col justify-between px-8 md:px-80 py-8 transition-colors duration-300">
+        {/* background layer: keeps bg color but allows canvases to render above it */}
+        <div className="absolute inset-0 -z-20 bg-white dark:bg-[#010101]" aria-hidden />
+        {/* light-mode particle canvas + dark-mode rain canvas (positioned above background) */}
+        <LightParticles />
+        <Rain />
         <header className="sect-head flex justify-between items-center">
           <Link to="/">
             <div className="flex items-center gap-1 m-5 cursor-pointer">
