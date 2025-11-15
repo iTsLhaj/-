@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 
 interface ThemeContextType {
   isDark: boolean;
-  toggleTheme: () => void;
+  toggleTheme: (event: React.MouseEvent) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -25,7 +25,42 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [isDark]);
 
-  const toggleTheme = () => setIsDark(!isDark);
+  const toggleTheme = (event: React.MouseEvent) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Check if browser supports View Transitions API
+    if (!document.startViewTransition) {
+      setIsDark(!isDark);
+      return;
+    }
+
+    const transition = document.startViewTransition(() => {
+      setIsDark(!isDark);
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? clipPath.reverse() : clipPath,
+        },
+        {
+          duration: 500,
+          easing: 'ease-in-out',
+          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        }
+      );
+    });
+  };
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>

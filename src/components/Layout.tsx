@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import Rain from './Rain';
-import LightParticles from './LightParticles';
+import Sakura from './Sakura';
 
 interface LayoutProps { children: React.ReactNode; }
 
@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
         {/* background layer: keeps bg color but allows canvases to render above it */}
         <div className="absolute inset-0 -z-20 bg-white dark:bg-[#010101]" aria-hidden />
         {/* light-mode particle canvas + dark-mode rain canvas (positioned above background) */}
-        <LightParticles />
+        <Sakura />
         <Rain />
         <header className="sect-head flex justify-between items-center">
           <Link to="/">
@@ -23,7 +23,11 @@ export default function Layout({ children }: LayoutProps) {
               <span className="text-text-weak font-mono text-base uppercase">_</span>
             </div>
           </Link>
-          <button onClick={toggleTheme} className="group text-strong hover:text-accent transition-colors duration-300" aria-label="Toggle theme">
+          <button 
+            onClick={toggleTheme}  // toggleTheme now accepts the event automatically
+            className="group text-strong hover:text-accent transition-colors duration-300" 
+            aria-label="Toggle theme"
+          >
             <i className={`ph ${isDark ? 'ph-sun' : 'ph-moon'}`}></i>
           </button>
         </header>
