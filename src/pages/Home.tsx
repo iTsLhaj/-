@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { StaggerContainer, StaggerItem } from '../components/StaggerComponent';
+import { useEffect } from 'react';
 
 const navigationItems = [
   {
@@ -41,6 +42,10 @@ const navigationItems = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    window.document.title = "KenFolio | Home";
+  }, [])
+
   return (
     <StaggerContainer className="w-full px-4">
       {navigationItems.map((item) => (

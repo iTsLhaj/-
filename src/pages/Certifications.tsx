@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
 
 const certifications = [
@@ -58,6 +59,10 @@ const certifications = [
 ];
 
 export default function Certifications() {
+  useEffect(() => {
+    window.document.title = "KenFolio | Certifications";
+  }, [])
+
   return (
     <StaggerContainer className="w-full max-w-4xl px-4">
       {certifications.map((cert, index) => (

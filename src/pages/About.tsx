@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function About() {
+  useEffect(() => {
+    window.document.title = "KenFolio | About";
+  }, [])
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-7 w-full max-w-4xl mx-auto h-full px-4">
       <motion.div 

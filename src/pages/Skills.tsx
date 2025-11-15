@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
 
 const skills = [
@@ -173,6 +174,10 @@ const skills = [
 ];
 
 export default function Skills() {
+  useEffect(() => {
+    window.document.title = "KenFolio | Skills";
+  }, [])
+
   return (
     <StaggerContainer className="w-full max-w-4xl px-4">
       {skills.map((skill, index) => (

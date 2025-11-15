@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useEffect } from 'react';
 
 export default function NotFound() {
-    const { isDark } = useTheme();
+  const { isDark } = useTheme();
+
+  useEffect(() => {
+    window.document.title = "KenFolio | Page Not Found";
+  }, [])
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }} className="flex flex-col items-center justify-center gap-6 px-4">

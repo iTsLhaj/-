@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 export default function Resume() {
+  useEffect(() => {
+    window.document.title = "KenFolio | Resume";
+  }, [])
+
   return (
     <div className="flex flex-col items-center gap-4 px-4">
       <h1 className="text-text-strong font-mono font-normal text-sm sm:text-base uppercase">coming soon ...</h1>

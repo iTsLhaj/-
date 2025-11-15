@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StaggerContainer, StaggerItem } from "../components/StaggerComponent";
 
 const projects = [
@@ -85,6 +86,10 @@ const projects = [
 ];
 
 export default function Projects() {
+	useEffect(() => {
+		window.document.title = "KenFolio | Projects";
+	}, [])
+
 	return (
 		<StaggerContainer className="w-full max-w-full px-4">
 			{projects.map((project, index) => (

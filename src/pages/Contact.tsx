@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Notification {
   id: number;
@@ -45,6 +45,10 @@ const contactLinks = [
 export default function Contact() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    window.document.title = "KenFolio | Contact";
+  }, [])
 
   const showNotification = (message: string) => {
     const id = counter;
