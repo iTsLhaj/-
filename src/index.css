@@ -36,5 +36,26 @@
   }
 }
 
+/* ...existing base ... */
+
+.rain-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 20; /* moved above layout (layout uses z-10) */
+  mix-blend-mode: screen;
+  display: none; /* default hidden */
+}
+
+/* Show only in dark mode */
+html.dark .rain-canvas { display: block; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rain-canvas { display: none; }
+}
+
 /* Tailwind utilities should come after base/components so hover: and group-hover: utilities can override the base rules */
 @tailwind utilities;
