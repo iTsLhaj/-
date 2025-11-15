@@ -29,16 +29,10 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ensure utility classes map to CSS variables (without !important) */
-.text-strong { color: rgb(var(--color-text-strong) / 1); }
-.text-weak   { color: rgb(var(--color-text-weak) / 1); }
-.text-text-strong { color: rgb(var(--color-text-strong) / 1); }
-.text-text-weak   { color: rgb(var(--color-text-weak) / 1); }
-.dark .text-text-strong { color: rgb(var(--color-text-strong) / 1); }
-.dark .text-text-weak   { color: rgb(var(--color-text-weak) / 1); }
-
-/* Allow Tailwind hover utilities to override */
-.text-text-weak:hover,
-.text-weak:hover {
-  color: #bb1f8c;
-}
+/* ensure utility classes map to CSS variables */
+.text-strong { color: rgb(var(--color-text-strong) / 1) !important; }
+.text-weak   { color: rgb(var(--color-text-weak) / 1) !important; }
+.text-text-strong { color: rgb(var(--color-text-strong) / 1) !important; }
+.text-text-weak   { color: rgb(var(--color-text-weak) / 1) !important; }
+.dark .text-text-strong { color: rgb(var(--color-text-strong) / 1) !important; }
+.dark .text-text-weak   { color: rgb(var(--color-text-weak) / 1) !important; }
