@@ -64,7 +64,7 @@ export default function Certifications() {
         <StaggerItem key={index} className="mb-6">
           <a href={cert.href} target="_blank" rel="noopener noreferrer">
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className="ph ph-certificate text-text-strong mr-3"></i>
+              <i className="ph ph-certificate text-strong mr-3"></i>
               <p className="text-text-strong font-mono font-normal text-base uppercase">
                 {cert.title}
               </p>

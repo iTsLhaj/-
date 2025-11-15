@@ -77,7 +77,7 @@ export default function Contact() {
                 className="w-full text-left"
               >
                 <div className="flex items-center gap-1 m-5 cursor-pointer group">
-                  <i className={`ph ${link.icon} text-text-strong mr-3`}></i>
+                  <i className={`ph ${link.icon} text-strong mr-3`}></i>
                   <p className="text-text-strong font-mono font-normal text-base uppercase">
                     {link.title}
                   </p>
@@ -93,7 +93,7 @@ export default function Contact() {
                 rel={link.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
               >
                 <div className="flex items-center gap-1 m-5 cursor-pointer group">
-                  <i className={`ph ${link.icon} text-text-strong mr-3`}></i>
+                  <i className={`ph ${link.icon} text-strong mr-3`}></i>
                   <p className="text-text-strong font-mono font-normal text-base uppercase">
                     {link.title}
                   </p>

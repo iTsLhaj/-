@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const { isDark, toggleTheme } = useTheme();
+
   return (
-    <div className="min-h-screen bg-[#010101] flex flex-col justify-between px-8 md:px-80 py-8">
+    <div className="min-h-screen bg-white dark:bg-[#010101] flex flex-col justify-between px-8 md:px-80 py-8 transition-colors duration-300">
       {/* Header */}
-      <header className="sect-head">
+      <header className="sect-head flex justify-between items-center">
         <Link to="/">
           <div className="flex items-center gap-1 m-5 cursor-pointer">
             <p className="text-text-strong font-mono font-normal text-base uppercase">
@@ -19,6 +22,15 @@ export default function Layout({ children }: LayoutProps) {
             </span>
           </div>
         </Link>
+        <button
+          onClick={toggleTheme}
+          className="text-strong hover:text-accent transition-colors duration-300"
+          aria-label="Toggle theme"
+        >
+          <span className="material-icons">
+            {isDark ? 'light_mode' : 'dark_mode'}
+          </span>
+        </button>
       </header>
 
       {/* Main Content */}

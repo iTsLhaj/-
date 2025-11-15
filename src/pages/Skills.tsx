@@ -179,7 +179,7 @@ export default function Skills() {
         <StaggerItem key={index} className="mb-6">
           <a href={skill.href} target="_blank" rel="noopener noreferrer">
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className="text-text-strong mr-3">
+              <i className="text-strong mr-3">
                 {typeof skill.icon === 'string' ? (
                   <i className={`ph ${skill.icon}`}></i>
                 ) : (

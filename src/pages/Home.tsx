@@ -47,7 +47,7 @@ export default function Home() {
         <StaggerItem key={item.href} className="mb-6">
           <Link to={item.href}>
             <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className={`ph ${item.icon} text-text-strong mr-3`}></i>
+              <i className={`ph ${item.icon} text-strong mr-3`}></i>
               <p className="text-text-strong font-mono font-normal text-base uppercase">
                 {item.title}
               </p>
