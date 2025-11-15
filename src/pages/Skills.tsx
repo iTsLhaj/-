@@ -174,32 +174,20 @@ const skills = [
 
 export default function Skills() {
   return (
-    <StaggerContainer className="w-full max-w-4xl">
+    <StaggerContainer className="w-full max-w-4xl px-4">
       {skills.map((skill, index) => (
-        <StaggerItem key={index} className="mb-6">
+        <StaggerItem key={index} className="mb-3 sm:mb-6">
           <a href={skill.href} target="_blank" rel="noopener noreferrer">
-            <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className="text-strong mr-3">
-                {typeof skill.icon === 'string' ? (
-                  <i className={`ph ${skill.icon}`}></i>
-                ) : (
-                  skill.icon
-                )}
+            <div className="flex items-center gap-1 m-2 sm:m-5 cursor-pointer group">
+              <i className="text-strong mr-2 sm:mr-3 text-base sm:text-xl">
+                {typeof skill.icon === 'string' ? <i className={`ph ${skill.icon}`}></i> : skill.icon}
               </i>
-              <p className="text-text-strong font-mono font-normal text-base uppercase">
-                {skill.title}
-              </p>
+              <p className="text-text-strong font-mono font-normal text-sm sm:text-base uppercase">{skill.title}</p>
               <span 
-                className="text-text-weak font-mono font-normal text-base uppercase transition-all duration-300 group-hover:translate-x-1"
-                style={{
-                  '--hover-color': skill.hoverColor,
-                } as React.CSSProperties}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = skill.hoverColor;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '';
-                }}
+                className="text-text-weak font-mono font-normal text-xs sm:text-base uppercase transition-all duration-300 group-hover:translate-x-1 hidden sm:inline"
+                style={{'--hover-color': skill.hoverColor} as React.CSSProperties}
+                onMouseEnter={(e) => e.currentTarget.style.color = skill.hoverColor}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
               >
                 _ {skill.description}
               </span>

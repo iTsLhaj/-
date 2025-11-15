@@ -59,16 +59,14 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <StaggerContainer className="w-full max-w-4xl">
+    <StaggerContainer className="w-full max-w-4xl px-4">
       {certifications.map((cert, index) => (
-        <StaggerItem key={index} className="mb-6">
+        <StaggerItem key={index} className="mb-3 sm:mb-6">
           <a href={cert.href} target="_blank" rel="noopener noreferrer">
-            <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className="ph ph-certificate text-strong mr-3"></i>
-              <p className="text-text-strong font-mono font-normal text-base uppercase">
-                {cert.title}
-              </p>
-              <span className="text-text-weak font-mono font-normal text-base uppercase transition-all duration-300 group-hover:text-accent group-hover:translate-x-1">
+            <div className="flex items-center gap-1 m-2 sm:m-5 cursor-pointer group">
+              <i className="ph ph-certificate text-strong mr-2 sm:mr-3 text-base sm:text-xl"></i>
+              <p className="text-text-strong font-mono font-normal text-sm sm:text-base uppercase">{cert.title}</p>
+              <span className="text-text-weak font-mono font-normal text-xs sm:text-base uppercase transition-all duration-300 group-hover:text-accent group-hover:translate-x-1 hidden sm:inline">
                 _ {cert.date} @ {cert.source}
               </span>
             </div>

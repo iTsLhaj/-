@@ -42,16 +42,16 @@ const navigationItems = [
 
 export default function Home() {
   return (
-    <StaggerContainer>
+    <StaggerContainer className="w-full px-4">
       {navigationItems.map((item) => (
-        <StaggerItem key={item.href} className="mb-6">
+        <StaggerItem key={item.href} className="mb-3 sm:mb-6">
           <Link to={item.href}>
-            <div className="flex items-center gap-1 m-5 cursor-pointer group">
-              <i className={`ph ${item.icon} text-strong mr-3`}></i>
-              <p className="text-text-strong font-mono font-normal text-base uppercase">
+            <div className="flex items-center gap-1 m-2 sm:m-5 cursor-pointer group">
+              <i className={`ph ${item.icon} text-strong mr-2 sm:mr-3 text-base sm:text-xl`}></i>
+              <p className="text-text-strong font-mono font-normal text-sm sm:text-base uppercase">
                 {item.title}
               </p>
-              <span className="text-text-weak font-mono font-normal text-base uppercase transition-all duration-300 group-hover:text-accent group-hover:translate-x-1">
+              <span className="text-text-weak font-mono font-normal text-xs sm:text-base uppercase transition-all duration-300 group-hover:text-accent group-hover:translate-x-1 hidden sm:inline">
                 _ {item.description}
               </span>
             </div>
