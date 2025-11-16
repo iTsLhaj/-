@@ -8,7 +8,6 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Certifications from './pages/Certifications';
-import Resume from './pages/Resume';
 import NotFound from './pages/NotFound';
 
 function AnimatedRoutes() {
@@ -23,7 +22,6 @@ function AnimatedRoutes() {
         <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/certifications" element={<PageTransition><Certifications /></PageTransition>} />
-        <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
