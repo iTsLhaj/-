@@ -9,6 +9,7 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Certifications from './pages/Certifications';
 import NotFound from './pages/NotFound';
+import ProjectDetail from './pages/ProjectDetail';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/project/:id" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/skills" element={<PageTransition><Skills /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/certifications" element={<PageTransition><Certifications /></PageTransition>} />
