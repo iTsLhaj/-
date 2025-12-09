@@ -108,12 +108,12 @@ export default function Contact() {
 
       <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex flex-col gap-4 max-w-[90vw] pointer-events-auto">
         {notifications.map((notif) => (
-          <div key={notif.id} className={`bg-[rgba(20,20,20,0.95)] border border-[rgba(255,255,255,0.1)] px-3 py-3 sm:px-5 sm:py-4 min-w-[250px] sm:min-w-[300px] backdrop-blur-[10px] text-white text-xs font-mono ${notif.isExiting ? 'animate-slide-out' : 'animate-slide-in'}`}>
+          <div key={notif.id} className={`bg-white dark:bg-[rgba(20,20,20,0.95)] border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.1)] px-3 py-3 sm:px-5 sm:py-4 min-w-[250px] sm:min-w-[300px] backdrop-blur-[10px] text-black dark:text-white text-xs font-mono ${notif.isExiting ? 'animate-slide-out' : 'animate-slide-in'}`}>
             <div className="flex justify-between items-center">
               <span className="text-xs sm:text-sm">{notif.message}</span>
               <button 
                 onClick={() => hideNotification(notif.id)} 
-                className="bg-transparent border-none text-[rgba(255,255,255,0.6)] cursor-pointer text-lg ml-2 hover:text-white"
+                className="bg-transparent border-none text-[rgba(0,0,0,0.6)] dark:text-[rgba(255,255,255,0.6)] cursor-pointer text-lg ml-2 hover:text-black dark:hover:text-white"
                 type="button"
               >
                 ×
