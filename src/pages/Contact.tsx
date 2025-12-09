@@ -3,43 +3,30 @@ import { useEffect, useState } from 'react';
 interface Notification {
   id: number;
   message: string;
+  isExiting?: boolean;
 }
 
 const contactLinks = [
   {
     icon: 'ph-envelope-simple',
     title: 'e-mail',
-    description: 'send an email, please :c',
+    description: 'copy my email',
     action: 'copy',
     value: 'd4wan5564x@gmail.com',
-    notification: 'Email Copied to Clipboard! 📧',
+    notification: 'Email copied to clipboard! 📧',
   },
   {
     href: 'https://www.linkedin.com/in/hamza-mouhib-861776252/',
     icon: 'ph-linkedin-logo',
-    title: 'linked-in',
-    description: 'linked-in? ...',
-  },
-  {
-    href: 'https://www.instagram.com/4c48344a/',
-    icon: 'ph-instagram-logo',
-    title: 'instagram',
-    description: 'send reels :p',
-  },
-  {
-    icon: 'ph-discord-logo',
-    title: 'discord',
-    description: 'reach me out on discord!',
-    action: 'copy',
-    value: 'lh4j',
-    notification: 'Discord ID Copied to Clipboard! 🎮',
+    title: 'linkedin',
+    description: 'view my profile',
   },
   {
     href: 'https://github.com/itsLhaj',
     icon: 'ph-github-logo',
     title: 'github',
-    description: 'check my github ^^',
-  },
+    description: 'browse my code',
+  }
 ];
 
 export default function Contact() {
@@ -52,18 +39,41 @@ export default function Contact() {
 
   const showNotification = (message: string) => {
     const id = counter;
-    setCounter(counter + 1);
-    setNotifications(prev => [...prev, { id, message }]);
+    setCounter(prev => prev + 1);
+    setNotifications(prev => [...prev, { id, message, isExiting: false }]);
     setTimeout(() => hideNotification(id), 2500);
   };
 
   const hideNotification = (id: number) => {
-    setNotifications(prev => prev.filter(notif => notif.id !== id));
+    setNotifications(prev => 
+      prev.map(notif => notif.id === id ? { ...notif, isExiting: true } : notif)
+    );
+    setTimeout(() => {
+      setNotifications(prev => prev.filter(notif => notif.id !== id));
+    }, 400);
   };
 
-  const handleCopy = (value: string, notification: string) => {
-    navigator.clipboard.writeText(value);
-    showNotification(notification);
+  const handleCopy = async (value: string, notification: string) => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        // fallback method
+        const textarea = document.createElement("textarea");
+        textarea.value = value;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      showNotification(notification);
+    } catch (err) {
+      showNotification("Failed to copy");
+      console.error("Copy failed:", err);
+    }
   };
 
   return (
@@ -96,12 +106,18 @@ export default function Contact() {
         ))}
       </ul>
 
-      <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex flex-col gap-4 max-w-[90vw]">
+      <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex flex-col gap-4 max-w-[90vw] pointer-events-auto">
         {notifications.map((notif) => (
-          <div key={notif.id} className="bg-[rgba(20,20,20,0.95)] border border-[rgba(255,255,255,0.1)] px-3 py-3 sm:px-5 sm:py-4 min-w-[250px] sm:min-w-[300px] backdrop-blur-[10px] text-white text-xs font-mono animate-slide-in">
+          <div key={notif.id} className={`bg-[rgba(20,20,20,0.95)] border border-[rgba(255,255,255,0.1)] px-3 py-3 sm:px-5 sm:py-4 min-w-[250px] sm:min-w-[300px] backdrop-blur-[10px] text-white text-xs font-mono ${notif.isExiting ? 'animate-slide-out' : 'animate-slide-in'}`}>
             <div className="flex justify-between items-center">
               <span className="text-xs sm:text-sm">{notif.message}</span>
-              <button onClick={() => hideNotification(notif.id)} className="bg-transparent border-none text-[rgba(255,255,255,0.6)] cursor-pointer text-lg ml-2 hover:text-white">×</button>
+              <button 
+                onClick={() => hideNotification(notif.id)} 
+                className="bg-transparent border-none text-[rgba(255,255,255,0.6)] cursor-pointer text-lg ml-2 hover:text-white"
+                type="button"
+              >
+                ×
+              </button>
             </div>
           </div>
         ))}
@@ -112,7 +128,12 @@ export default function Contact() {
           from { transform: translateX(400px); opacity: 0; }
           to { transform: translateX(0); opacity: 1; }
         }
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(400px); opacity: 0; }
+        }
         .animate-slide-in { animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .animate-slide-out { animation: slideOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
       `}</style>
     </>
   );

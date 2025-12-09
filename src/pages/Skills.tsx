@@ -15,21 +15,21 @@ const skills = [
       </svg>
     ),
     title: 'python',
-    description: 'that damn snake :<',
+    description: 'general-purpose scripting and backend development',
     hoverColor: '#c6e211',
   },
   {
     href: 'https://www.gnu.org/software/bash/',
     icon: 'ph-terminal',
     title: 'bash',
-    description: 'another kind of hyroglifics',
+    description: 'shell scripting and automation',
     hoverColor: '#25c530',
   },
   {
     href: 'https://en.cppreference.com/w/c/',
     icon: 'ph-file-c',
     title: 'c',
-    description: 'lovely, pretty little baby',
+    description: 'low-level programming and memory management',
     hoverColor: '#252ac5',
   },
   {
@@ -45,7 +45,7 @@ const skills = [
       </svg>
     ),
     title: 'c++',
-    description: 'seems like a man of culture!',
+    description: 'object-oriented and performance-focused development',
     hoverColor: '#2560c5',
   },
   {
@@ -58,7 +58,7 @@ const skills = [
       </svg>
     ),
     title: 'javascript',
-    description: 'sense makes no sense',
+    description: 'dynamic and interactive web programming',
     hoverColor: '#dfdf2b',
   },
   {
@@ -74,7 +74,7 @@ const skills = [
       </svg>
     ),
     title: 'go',
-    description: 'blazing fast',
+    description: 'concurrent, efficient backend development',
     hoverColor: '#11efe1',
   },
   {
@@ -88,7 +88,7 @@ const skills = [
       </svg>
     ),
     title: 'visual studio code',
-    description: 'my little portal besides vim',
+    description: 'lightweight and extensible development environment',
     hoverColor: '#236db6',
   },
   {
@@ -106,14 +106,14 @@ const skills = [
       </svg>
     ),
     title: 'git',
-    description: 'google drive alternative',
+    description: 'version control and collaboration workflows',
     hoverColor: '#ec5910',
   },
   {
     href: 'https://en.wikipedia.org/wiki/Linux',
     icon: 'ph-linux-logo',
     title: 'linux',
-    description: 'home, place where i can go',
+    description: 'system administration and development environment',
     hoverColor: '#c7c7c7',
   },
   {
@@ -128,7 +128,7 @@ const skills = [
       </svg>
     ),
     title: 'typescript',
-    description: 'makes sense, a bit',
+    description: 'typed JavaScript for scalable applications',
     hoverColor: '#35d0ff',
   },
   {
@@ -141,14 +141,14 @@ const skills = [
       </svg>
     ),
     title: 'prisma',
-    description: 'heavy lifter',
+    description: 'type-safe database ORM',
     hoverColor: '#9e3be5',
   },
   {
     href: 'https://flask.palletsprojects.com/en/stable/',
     icon: 'ph-flask',
     title: 'flask',
-    description: 'i betrayed him ...',
+    description: 'lightweight Python web framework',
     hoverColor: '#58e188',
   },
   {
@@ -168,7 +168,7 @@ const skills = [
       </svg>
     ),
     title: 'docker',
-    description: 'more than one piece',
+    description: 'containerization and environment isolation',
     hoverColor: '#2e00d5',
   },
 ];

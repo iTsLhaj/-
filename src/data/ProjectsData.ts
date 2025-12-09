@@ -17,29 +17,28 @@ export const projects: Project[] = [
     id: "netpractice",
     icon: "ph-network",
     title: "netpractice",
-    description: "deciphering the labyrinth of networks, stringing fate through cables.",
+    description: "Hands-on networking project focused on debugging and configuring broken network topologies.",
     coverImage: "/assets/netpractice-cover.jpg",
     shortDescription: "Network configuration challenge",
     technologies: ["Networking", "TCP/IP", "Subnetting", "Routing"],
-    overview: "A comprehensive network configuration challenge that tests your understanding of network fundamentals, IP addressing, and routing protocols.",
+    overview: "A set of 10 progressively complex networking scenarios focused on IP addressing, subnetting, routing, and troubleshooting. Each level requires analyzing a broken network topology and applying correct configurations to restore connectivity.",
     features: [
       "Network topology understanding",
       "Subnet mask calculation",
-      "Routing configuration",
-      "Protocol analysis"
+      "Routing configuration"
     ],
     challenge: "Mastering complex network layers and configurations",
-    outcome: "Deep understanding of networking principles and practical configuration skills"
+    outcome: "Practical understanding of networking fundamentals"
   },
   {
     id: "webserv",
     icon: "ph-hard-drives",
     title: "webserv",
-    description: "binding incantations into a living server, where http awakens.",
+    description: "Implementation of an HTTP server in C++ following RFC basics and real browser testing.",
     coverImage: "/assets/webserv-cover.jpg",
     shortDescription: "HTTP server implementation",
     technologies: ["C++", "HTTP", "Networking", "Server Development"],
-    overview: "Building a functional HTTP server from scratch, implementing core web server functionality and protocol handling.",
+    overview: "Implementation of an HTTP server in C++ handling request parsing, routing, configuration files, error handling, and persistent connections. The server supports static file serving and can be tested in any standard browser.",
     features: [
       "HTTP request parsing",
       "Response generation",
@@ -47,17 +46,17 @@ export const projects: Project[] = [
       "Configuration system"
     ],
     challenge: "Implementing HTTP protocol specifications correctly",
-    outcome: "Production-ready HTTP server with proper error handling"
+    outcome: "Fully functional HTTP server with robust error handling"
   },
   {
     id: "inception",
     icon: "ph-cloud",
     title: "inception",
-    description: "building stacked environments through docker orchestration.",
+    description: "Setup of a containerized infrastructure using Docker Compose with NGINX, WordPress, and MariaDB.",
     coverImage: "/assets/inception-cover.jpg",
     shortDescription: "Docker infrastructure project",
     technologies: ["Docker", "Docker Compose", "Linux", "Infrastructure"],
-    overview: "Multi-container environment setup with Docker, implementing microservices architecture and orchestration.",
+    overview: "Containerized infrastructure using Docker Compose to deploy NGINX (with SSL), WordPress with PHP-FPM, and a MariaDB database. The project focuses on service orchestration, network isolation, volumes, and secure deployment within a custom VM.",
     features: [
       "Container orchestration",
       "Service networking",
@@ -71,11 +70,11 @@ export const projects: Project[] = [
     id: "ft_transcendence",
     icon: "ph-star-four",
     title: "ft_transcendence",
-    description: "a full-stack challenge pushing architecture beyond basics.",
+    description: "Full-stack web application built with TypeScript, real-time features, and modular architecture.",
     coverImage: "/assets/ft_transcendence-cover.jpg",
     shortDescription: "Full-stack web application",
-    technologies: ["React", "Node.js", "PostgreSQL", "WebSockets", "TypeScript"],
-    overview: "A comprehensive full-stack project incorporating frontend, backend, database, and real-time communication.",
+    technologies: ["Node.js", "TailwindCSS", "WebSockets", "TypeScript", "Fastify"],
+    overview: "Full-stack web application built with TypeScript and Fastify, featuring authentication, real-time gameplay via WebSockets, REST API endpoints, and a modular architecture. The project integrates both front-end and back-end components into a deployable product.",
     features: [
       "Real-time multiplayer functionality",
       "User authentication and authorization",
@@ -83,6 +82,6 @@ export const projects: Project[] = [
       "REST API implementation"
     ],
     challenge: "Integrating complex systems into a cohesive application",
-    outcome: "Production-grade full-stack web application"
+    outcome: "Fully deployable full-stack web application with real-time features"
   }
 ];
